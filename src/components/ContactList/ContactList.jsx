@@ -1,10 +1,11 @@
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
+import { List } from './ContactList.styled';
 
 export const ContactList = ({ contacts, deleteContact }) => {
   return (
-    <ul>
+    <List>
       {contacts.map(contact => {
         contact.id = nanoid();
         return (
@@ -15,7 +16,7 @@ export const ContactList = ({ contacts, deleteContact }) => {
           ></ContactItem>
         );
       })}
-    </ul>
+    </List>
   );
 };
 

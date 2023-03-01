@@ -3,6 +3,7 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { GlobalStyle } from './GlobalStyle';
+import { Layout, HeroTitle, Title } from './Layout.styled';
 
 export class App extends Component {
   state = {
@@ -47,21 +48,21 @@ export class App extends Component {
       contact.name.toLowerCase().includes(lowerCaseFilter)
     );
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Layout>
+        <HeroTitle>Phonebook</HeroTitle>
         <ContactForm
           contacts={this.state.contacts}
           addNewContact={this.addNewContact}
           checkExistingContact={this.checkExistingContact}
         />
-        <h2>Contacts</h2>
+        <Title>Contacts</Title>
         <Filter filterContact={this.filterContact} value={this.state.filter} />
         <ContactList
           contacts={filteredContacts}
           deleteContact={this.deleteContact}
         />
         <GlobalStyle />
-      </div>
+      </Layout>
     );
   }
 }

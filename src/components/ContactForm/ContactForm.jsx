@@ -1,5 +1,6 @@
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
+import { Button, Input } from './ContactForm.styled';
 
 const initialValues = {
   name: '',
@@ -16,7 +17,7 @@ export const ContactForm = ({ checkExistingContact }) => {
       <Form autoComplete="off">
         <label>
           Name
-          <Field
+          <Input
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -24,10 +25,10 @@ export const ContactForm = ({ checkExistingContact }) => {
             required
           />
         </label>
-        <br />
+        {/* <br /> */}
         <label>
           Phone
-          <Field
+          <Input
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -35,8 +36,8 @@ export const ContactForm = ({ checkExistingContact }) => {
             required
           />
         </label>
-        <br />
-        <button type="submit">Add contact</button>
+        {/* <br /> */}
+        <Button type="submit">Add contact</Button>
       </Form>
     </Formik>
   );

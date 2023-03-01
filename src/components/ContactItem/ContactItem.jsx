@@ -1,18 +1,24 @@
 import PropTypes from 'prop-types';
+import { DeleteButton, FullName, Item, Number } from './ContactItem.styled';
 
 export const ContactItem = ({
   contactData: { name, number, id },
   deleteContact,
 }) => {
+  let fullName = name.split(' ');
+  let newStr = fullName
+    .map(str => {
+      return str[0].toUpperCase() + str.toLowerCase().slice(1);
+    })
+    .join(' ');
   return (
-    <li id={id}>
-      <p>
-        {name}: <span>{number}</span>
-      </p>
-      <button type="button" onClick={() => deleteContact(id)}>
-        Delete contact
-      </button>
-    </li>
+    <Item id={id}>
+      <FullName>{newStr}:</FullName>
+      <Number>{number}</Number>
+      <DeleteButton type="button" onClick={() => deleteContact(id)}>
+        Delete
+      </DeleteButton>
+    </Item>
   );
 };
 
