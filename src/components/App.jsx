@@ -32,7 +32,7 @@ export class App extends Component {
 
   checkExistingContact = newContact => {
     const checked = this.state.contacts.filter(contact => {
-      return contact.name === newContact.name;
+      return contact.name.toLowerCase() === newContact.name.toLowerCase();
     });
     if (checked.length !== 0) {
       alert(`${newContact.name} is already in contacts`);

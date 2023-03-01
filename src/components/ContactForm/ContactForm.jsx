@@ -1,4 +1,5 @@
 import { Formik, Form, Field } from 'formik';
+import PropTypes from 'prop-types';
 
 const initialValues = {
   name: '',
@@ -39,4 +40,8 @@ export const ContactForm = ({ checkExistingContact }) => {
       </Form>
     </Formik>
   );
+};
+
+ContactForm.propTypes = {
+  checkExistingContact: PropTypes.func.isRequired,
 };
